@@ -1789,10 +1789,12 @@ if (contactForm) {
 const musicToggle = document.querySelector(".music-toggle")
   let audio = null
   let isPlaying = false
+    let hasAudioLoaded = false
+    const audioSrc = "mp3/restaurantmusic.mp3"
 
   if (musicToggle) {
     audio = document.createElement("audio")
-    audio.src = "mp3/restaurantmusic.mp3"
+        audio.preload = "none"
     audio.loop = true
 
     musicToggle.addEventListener("click", () => {
@@ -1832,6 +1834,11 @@ const musicToggle = document.querySelector(".music-toggle")
     </g>
 </svg>`;
       } else {
+                if (!hasAudioLoaded) {
+                    audio.src = audioSrc
+                    audio.load()
+                    hasAudioLoaded = true
+                }
         audio.play()
         musicToggle.querySelector(".music-icon").innerHTML = 
         `<svg class="sound-waves" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
