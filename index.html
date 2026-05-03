@@ -64,15 +64,11 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 
-    <!-- PREFETCH & PRELOAD -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="preload" href="css/style.css" as="style">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
     <!-- SCHEMA.ORG STRUCTURED DATA -->
     <script type="application/ld+json">
 {
@@ -351,7 +347,10 @@
     <main>
         <section class="hero container">
             <div class="hero-img">
-                <video class="video-animation-izrada-sajtova" src="video/izrada-sajtova-video-coding.mp4" muted loop autoplay playsinline preload="metadata" poster="images/hero-poster.jpg"></video>
+                <video class="video-animation-izrada-sajtova" muted loop autoplay playsinline preload="metadata" poster="images/hero-poster.jpg">
+                    <source src="video/izrada-sajtova-video-coding-smallvideo.mp4" type="video/mp4" media="(max-width: 449px)">
+                    <source src="video/izrada-sajtova-video-coding.mp4" type="video/mp4" media="(min-width: 450px)">
+                </video>
                 <svg class="hero-svg slideLeft-animation-izrada-sajtova" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1262" height="992" viewBox="0 0 1262 992" preserveAspectRatio="xMidYMid slice">
                     <defs>
                         <filter id="insetShadow">
