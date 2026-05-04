@@ -343,13 +343,14 @@
     <main>
         <section class="hero container">
             <div class="hero-img">
-                <video
+               <video
                 class="video-animation-izrada-sajtova"
                 muted
                 loop
                 autoplay
                 playsinline
                 preload="none"
+                poster="images/hero-poster-small.webp"
                 ></video>
                 <svg class="hero-svg slideLeft-animation-izrada-sajtova" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1262" height="992" viewBox="0 0 1262 992" preserveAspectRatio="xMidYMid slice">
                     <defs>
@@ -415,6 +416,36 @@
              
             </div>
         </section>
+                <script>
+              // VIDEO LOADING
+  const heroVideo = document.querySelector('.video-animation-izrada-sajtova');
+
+  if (window.innerWidth >= 450) {
+    heroVideo.poster = 'images/hero-poster.webp';
+  }
+
+  window.addEventListener('load', () => {
+    const width = window.innerWidth;
+
+    let src;
+
+    if (width <= 379) {
+      src = 'video/izrada-sajtova-video-coding-smallvideo2.mp4';
+    } else if (width <= 449) {
+      src = 'video/izrada-sajtova-video-coding-smallvideo.mp4';
+    } else {
+      src = 'video/izrada-sajtova-video-coding.mp4';
+    }
+
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = 'video/mp4';
+
+    heroVideo.appendChild(source);
+    heroVideo.load();
+    heroVideo.play().catch(() => {});
+  });
+        </script>
         <section class="decoration">
             <div class="site-dekoracija3" aria-hidden="true" data-description="Dekorativna linija simbola, nije tekstualni sadrzaj.">
                 &#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;&#10070;
@@ -1952,34 +1983,7 @@ window.addEventListener("scroll", () => {
       });
   });
   // END TRACK CALL CLICKS
-  // VIDEO LOADING
-  const video = document.querySelector('.video-animation-izrada-sajtova');
-  const width = window.innerWidth;
 
-  video.poster = width < 450
-    ? 'images/hero-poster-small.webp'
-    : 'images/hero-poster.webp';
-
-  window.addEventListener('load', () => {
-    let src;
-
-    if (width <= 379) {
-      src = 'video/izrada-sajtova-video-coding-smallvideo2.mp4';
-    } else if (width <= 449) {
-      src = 'video/izrada-sajtova-video-coding-smallvideo.mp4';
-    } else {
-      src = 'video/izrada-sajtova-video-coding.mp4';
-    }
-
-    const source = document.createElement('source');
-    source.src = src;
-    source.type = 'video/mp4';
-
-    video.appendChild(source);
-    video.load();
-    video.play().catch(() => {});
-  });
-  
     </script>
 </body>
 </html>
