@@ -805,6 +805,9 @@ ul {
     .gold-underlineH2 {
         width: 40px;
     }
+    .hero-img video {
+    border-left: none;
+}
 }
 .section-about {
     display: flex;
