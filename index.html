@@ -348,8 +348,8 @@
                <video
                 class="video-animation-izrada-sajtova"
                 muted
-                width="450"
-                height="668"
+                width="360"
+                height="640"
                 loop
                 autoplay
                 playsinline
@@ -431,15 +431,9 @@
   window.addEventListener('load', () => {
     const width = window.innerWidth;
 
-    let src;
-
-    if (width <= 379) {
-      src = 'video/izrada-sajtova-video-coding-smallvideo2.mp4';
-    } else if (width <= 449) {
-      src = 'video/izrada-sajtova-video-coding-smallvideo.mp4';
-    } else {
-      src = 'video/izrada-sajtova-video-coding.mp4';
-    }
+        const src = width < 450
+            ? 'video/izrada-sajtova-video-coding-smallvideo.mp4'
+            : 'video/izrada-sajtova-video-coding.mp4';
 
     const source = document.createElement('source');
     source.src = src;

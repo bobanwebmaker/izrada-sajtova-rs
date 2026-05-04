@@ -830,7 +830,7 @@ ul {
     background: #464644;
     overflow: hidden;
     height: fit-content;
-    width: 10%;
+    opacity: 0;
 }
 .section-about-img img {
     border-radius: 20px;
@@ -857,10 +857,12 @@ ul {
 }
 @keyframes shrinkImg  {
     0% {
-        width: 10%;
+        transform: scale(.1);
+        opacity: .5;
     }
     100% {
-        width: 100%;
+        transform: scale(1);
+        opacity: 1;
     }
 }
 .goUp-animation-izrada-sajtova {
@@ -873,11 +875,11 @@ ul {
 @keyframes goUp  {
     0% {
         position: relative;
-        top: 30px;
+        transform: translateY(30px);
         opacity: 0;
     }
     100% {
-        top: 0;
+        transform: translateY(0px);
         opacity: 1;
     }
 }
@@ -3004,13 +3006,14 @@ li {
 }
 .width100-animation-izrada-sajtova.active {
     animation: width100 .6s forwards  cubic-bezier(0, 0, 0.3, 1);
+    transform-origin: left center;
 }
 @keyframes width100  {
     0% {
-        width: 90%;
+        transform: scaleX(.8);
     }
     100% {
-        width: 100%;
+        transform: scaleX(1);
         opacity: 1;
     }
 }
