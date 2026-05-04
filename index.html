@@ -63,6 +63,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="logo/favicon-izrada-sajtova-rs-180w.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
+<link rel="preload" href="fonts/raleway-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/raleway-regular.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="css/style.css">
     <!-- SCHEMA.ORG STRUCTURED DATA -->
@@ -349,7 +351,8 @@
                 loop
                 autoplay
                 playsinline
-                preload="none"
+                fetchpriority="high"
+                preload="metadata"
                 poster="images/hero-poster-small.webp"
                 ></video>
                 <svg class="hero-svg slideLeft-animation-izrada-sajtova" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1262" height="992" viewBox="0 0 1262 992" preserveAspectRatio="xMidYMid slice">
