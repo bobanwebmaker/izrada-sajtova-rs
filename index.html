@@ -354,7 +354,6 @@
                 autoplay
                 playsinline
                 preload="none"
-                poster="images/hero-poster.jpg"
                 ></video>
                 <svg class="hero-svg slideLeft-animation-izrada-sajtova" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1262" height="992" viewBox="0 0 1262 992" preserveAspectRatio="xMidYMid slice">
                     <defs>
@@ -1958,24 +1957,32 @@ window.addEventListener("scroll", () => {
   });
   // END TRACK CALL CLICKS
   // VIDEO LOADING
- window.addEventListener('load', () => {
-    const video = document.querySelector('.video-animation-izrada-sajtova');
+  const video = document.querySelector('.video-animation-izrada-sajtova');
+  const width = window.innerWidth;
 
+  video.poster = width < 450
+    ? 'images/hero-poster-small.webp'
+    : 'images/hero-poster.webp';
+
+  window.addEventListener('load', () => {
     let src;
 
-    if (window.innerWidth <= 379) {
+    if (width <= 379) {
       src = 'video/izrada-sajtova-video-coding-smallvideo2.mp4';
-    } else if (window.innerWidth <= 449) {
+    } else if (width <= 449) {
       src = 'video/izrada-sajtova-video-coding-smallvideo.mp4';
     } else {
       src = 'video/izrada-sajtova-video-coding.mp4';
     }
 
-    video.innerHTML = `<source src="${src}" type="video/mp4">`;
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = 'video/mp4';
+
+    video.appendChild(source);
     video.load();
     video.play().catch(() => {});
   });
-
   
     </script>
 </body>
