@@ -2,6 +2,29 @@
 /* 
  IZRADA SAJTOVA  
 */
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/raleway/raleway-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/raleway/raleway-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/raleway/raleway-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 
 /* ===== Base Styles ===== */
