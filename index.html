@@ -1754,41 +1754,7 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
-// CONTACT FORM JS
-const contactForm = document.querySelector('.contact-form-index form');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const button = contactForm.querySelector('button[type="submit"]');
-        
-        button.disabled = true;
-        button.textContent = 'Šalje se...';
-        
-        try {
-            // Ovde dodaj svoj API endpoint
-            const response = await fetch('your-api-endpoint.php', {
-                method: 'POST',
-                body: formData
-            });
-            
-            if (response.ok) {
-                alert('Poruka uspešno poslata!');
-                contactForm.reset();
-            } else {
-                throw new Error('Greška pri slanju');
-            }
-        } catch (error) {
-            alert('Došlo je do greške. Pokušajte ponovo.');
-        } finally {
-            button.disabled = false;
-            button.textContent = 'Pošalji poruku';
-        }
-    });
-}
-// END CONTACT FORM JS
 
 // MUSCI
 const musicToggle = document.querySelector(".music-toggle")
