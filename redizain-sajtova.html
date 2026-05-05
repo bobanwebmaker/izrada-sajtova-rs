@@ -206,6 +206,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-TLJFZZKZF5');
+  gtag('config', 'AW-18141607037');
 </script>
     
 </head>
@@ -930,6 +931,20 @@ window.addEventListener("scroll", () => {
 });
 
   // END HIDE BUTTONS
+  // Google Ads call conversion tracking for all call links/buttons
+  const adsCallConversionSendTo = "AW-18141607037/REPLACE_WITH_CONVERSION_LABEL";
+  document.querySelectorAll(".trackcall").forEach((callElement) => {
+    callElement.addEventListener("click", () => {
+      if (typeof gtag !== "function") {
+        return;
+      }
+
+      gtag("event", "conversion", {
+        send_to: adsCallConversionSendTo,
+        transport_type: "beacon"
+      });
+    });
+  });
     </script>
 </body>
 </html>

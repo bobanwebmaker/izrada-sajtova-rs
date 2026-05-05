@@ -288,6 +288,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-TLJFZZKZF5');
+  gtag('config', 'AW-18141607037');
 </script>
 
 </head>
@@ -1946,40 +1947,21 @@ window.addEventListener("scroll", () => {
         });
   // END RESULTS ON HOVER
 
-  // TRACK CALL CLICKS
-  document.addEventListener('DOMContentLoaded', function() {
-      const callLinks = document.querySelectorAll('.trackcall');
 
-      if (!callLinks.length) {
-          return;
+// Google Ads call conversion tracking for all call links/buttons
+  const adsCallConversionSendTo = "AW-18141607037/REPLACE_WITH_CONVERSION_LABEL";
+  document.querySelectorAll(".trackcall").forEach((callElement) => {
+    callElement.addEventListener("click", () => {
+      if (typeof gtag !== "function") {
+        return;
       }
 
-      callLinks.forEach(link => {
-          link.addEventListener('click', () => {
-              const endpoint = 'private/izrada-sajtova.php';
-              const payload = 'event=call';
-
-              if (navigator.sendBeacon) {
-                  const blob = new Blob([payload], { type: 'application/x-www-form-urlencoded' });
-                  navigator.sendBeacon(endpoint, blob);
-                  return;
-              }
-
-              fetch(endpoint, {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded'
-                  },
-                  body: payload,
-                  keepalive: true
-              }).catch(() => {
-                  // Silent fail: logging should not block the call action.
-              });
-          });
+      gtag("event", "conversion", {
+        send_to: adsCallConversionSendTo,
+        transport_type: "beacon"
       });
+    });
   });
-  // END TRACK CALL CLICKS
-
     </script>
 </body>
 </html>
