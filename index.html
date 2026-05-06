@@ -291,6 +291,22 @@
   gtag('config', 'AW-18141607037');
 </script>
 
+<!-- Event snippet for Click to call conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18141607037/JePsCOeFsqgcEP3oy8pD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 </head>
 <body>
     <svg class="derocation-hero halftone-animation-izrada-sajtova" id="halftone" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
@@ -400,7 +416,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="button2 opacity-animation-izrada-sajtova trackcall" href="tel:+381611476514">  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                        <a class="button2 opacity-animation-izrada-sajtova trackcall" href="tel:+381611476514" onclick="return gtag_report_conversion(this.href);">  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
                             stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="white">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 
                                     19.9 19.9 0 0 1-8.63-3.07 
@@ -1109,7 +1125,7 @@
                             <h3>Spremni za transformaciju vašeg online prisustva?</h3>
                             <p>Započnimo vaš projekat danas i napravimo sajt koji će rasturiti konkurenciju</p>
                             <div class="cta-buttons">
-                                <a href="tel:+381611476514" class="btn btn-primary trackcall">Zakažite Konsultacije</a>
+                                <a href="tel:+381611476514" class="btn btn-primary trackcall" onclick="return gtag_report_conversion(this.href);">Zakažite Konsultacije</a>
                                 <a href="radovi.html" class="btn btn-secondary">Pogledajte Portfolio</a>
                             </div>
                             <svg aria-hidden="true" focusable="false" class="hero-svg decoration-svg2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1262" height="992" viewBox="0 0 1262 992" preserveAspectRatio="xMidYMid slice">
@@ -1324,7 +1340,7 @@
                         </div>
                 </div>
                 <div class="faq-cta">
-                    <p>Niste pronašli odgovor? <a href="tel:+381611476514" class="cta-link trackcall">Kontaktirajte nas</a></p>
+                    <p>Niste pronašli odgovor? <a href="tel:+381611476514" class="cta-link trackcall" onclick="return gtag_report_conversion(this.href);">Kontaktirajte nas</a></p>
                 </div>
             </div>
         </section>
@@ -1504,7 +1520,7 @@
                             <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                             </svg>
-                            <a href="tel:+381611476514" title="Telefon - Izrada sajtova RS" data-description="Izrada sajtova RS - Telefon firme za izradu sajtova" class="pozivi trackcall"><strong>Telefon:</strong> +381 61 147 6514</a>
+                            <a href="tel:+381611476514" title="Telefon - Izrada sajtova RS" data-description="Izrada sajtova RS - Telefon firme za izradu sajtova" class="pozivi trackcall" onclick="return gtag_report_conversion(this.href);"><strong>Telefon:</strong> +381 61 147 6514</a>
                         </p>
                         <p>
                             <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -1527,7 +1543,7 @@
             </div>
         </div>
     </footer>
-        <a href="tel:+381611476514" class="call-button pozivi trackcall" aria-label="Pozovite nas" title="Pozovi za izradu sajtova" data-description="Izrada sajtova RS - Telefon firme za izradu sajtova">
+        <a href="tel:+381611476514" class="call-button pozivi trackcall" onclick="return gtag_report_conversion(this.href);" aria-label="Pozovite nas" title="Pozovi za izradu sajtova" data-description="Izrada sajtova RS - Telefon firme za izradu sajtova">
             <span class="call-icon" aria-hidden="true">
                 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -1948,20 +1964,6 @@ window.addEventListener("scroll", () => {
   // END RESULTS ON HOVER
 
 
-// Google Ads call conversion tracking for all call links/buttons
-  const adsCallConversionSendTo = "AW-18141607037/nKPICJK76accEP3oy8pD";
-  document.querySelectorAll(".trackcall").forEach((callElement) => {
-    callElement.addEventListener("click", () => {
-      if (typeof gtag !== "function") {
-        return;
-      }
-
-      gtag("event", "conversion", {
-        send_to: adsCallConversionSendTo,
-        transport_type: "beacon"
-      });
-    });
-  });
     </script>
 </body>
 </html>
